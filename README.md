@@ -1,6 +1,6 @@
 # Eventex
 
-Sistema de enventos encomendado pela Morena
+Sistema de eventos encomendado pela Morena
 https://eventex-matheusguerra.herokuapp.com/
 
 ## Como desenvolver
