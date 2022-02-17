@@ -16,7 +16,7 @@ https://eventex-matheusguerra.herokuapp.com/
 git@github.com:matheusdguerra/Eventex-wttd.git
 cd wttd
 .\.wttd.\Scripts\activate
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 cp contrib/env-sample .env
 manage test
 ```
