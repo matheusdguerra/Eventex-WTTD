@@ -35,16 +35,16 @@ def create(request):
     # Success feedback
     # messages.success(request, 'Inscrição realizada com sucesso!')
 
-    return(HttpResponseRedirect('/inscricao/{}/'.format(subscription.pk)))
+    return(HttpResponseRedirect('/inscricao/{}/'.format(subscription.hashid)))
 
 
 def new(request):
     return render(request, 'subscriptions/subscription_form.html', {'form': SubscriptionForm()})
 
 
-def detail(request, pk):
+def detail(request, hashid):
     try:
-        subscriptions = Subscription.objects.get(pk=pk)
+        subscriptions = Subscription.objects.get(hashid=hashid)
     except Subscription.DoesNotExist:
         raise Http404
 
