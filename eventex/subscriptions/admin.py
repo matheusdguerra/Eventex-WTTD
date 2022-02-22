@@ -4,10 +4,10 @@ from django.utils.timezone import now
 
 
 class SubscriptionModelAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'cpf', 'created_at', 'subscrideb_today')
+    list_display = ('name', 'email', 'phone', 'cpf', 'created_at', 'subscrideb_today', 'paid')
     date_hierarchy = 'created_at'
     search_fields = ('name', 'email', 'phone', 'cpf', 'created_at')
-    list_filter = ('created_at',)
+    list_filter = ('paid', 'created_at')
 
     def subscrideb_today(self, obj):
         return obj.created_at.date() == now().date()
