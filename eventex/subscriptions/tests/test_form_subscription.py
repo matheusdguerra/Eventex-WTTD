@@ -1,4 +1,5 @@
 from distutils.log import error
+import email
 from django.test import TestCase
 from eventex.subscriptions.forms import SubscriptionForm
 
@@ -26,6 +27,21 @@ class Subscription(TestCase):
         # MATHEUS guerra    --> Matheus Guerra
         form = self.make_validated_form(name='MATHEUS guerra')
         self.assertEqual('Matheus Guerra', form.cleaned_data['name'])
+
+    def test_email_is_optional(self):
+        """Email is optional"""
+        form = self.make_validated_form(email='')
+        self.assertFalse(form.errors)
+
+    def test_phone_is_optional(self):
+        """phone is optional"""
+        form = self.make_validated_form(phone='')
+        self.assertFalse(form.errors)
+
+    def test_must_inform_email_or_phone(self):
+        """email and phone are optional, but one must be informed"""
+        form = self.make_validated_form(email='', phone='')
+        self.assertListEqual(['__all__'], list(form.errors))
 
     def assertformErrorCode(self, form, field, code):
         errors = form.errors.as_data()
