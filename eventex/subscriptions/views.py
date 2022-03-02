@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib import messages
 from django.core import mail
 from django.http import Http404, HttpResponseRedirect
 from django.template.loader import render_to_string
@@ -27,7 +26,11 @@ def create(request):
                       {'form': form})
 
     # Salva no banco
-    subscription = Subscription.objects.create(**form.cleaned_data)
+    # Usando forms.ModelForm
+    subscription = form.save()
+
+    # Usando forms.Form
+    #subscription = Subscription.objects.create(**form.cleaned_data)
 
     # send email
     _send_mail('Confirmação de inscrição',
