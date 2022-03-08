@@ -50,5 +50,7 @@ class Talk(models.Model):
         verbose_name = 'Palestra'
         verbose_name_plural = 'Palestras'
 
+        ordering = ['start']
+
     def __str__(self):
         return self.title
