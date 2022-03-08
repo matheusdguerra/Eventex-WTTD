@@ -20,6 +20,8 @@
         <h2>Mini-Cursos</h2>
         {%  for course in courses %}
         {% include 'core/talk_list_snippert.html' with talk=course only %}
+        {% empty %}
+        <p>Ainda não existem mini-cursos.</p>
         {% endfor %}
     </div>
 </section>
