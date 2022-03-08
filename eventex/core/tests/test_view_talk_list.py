@@ -17,7 +17,6 @@ class TalkListGet(TestCase):
 
         t1.speakers.add(speaker)
         t2.speakers.add(speaker)
-
         self.resp = self.client.get(r('talk_list'))
 
     def test_ge(self):

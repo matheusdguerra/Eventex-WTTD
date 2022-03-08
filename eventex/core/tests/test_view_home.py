@@ -16,9 +16,7 @@ class hometest(TestCase):
         self.assertEqual(200, self.response.status_code)
 
     def test_template(self):
-        '''
-        GET / must use index.html
-        '''
+        '''GET / must use index.html'''
         self.assertTemplateUsed(self.response, 'index.html')
 
     def test_subscription_link(self):

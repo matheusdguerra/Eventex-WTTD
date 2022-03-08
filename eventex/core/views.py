@@ -19,4 +19,5 @@ def talk_list(request):
         'morning_talks': Talk.objects.filter(start__lt='12:00'),
         'afternoon_talks': Talk.objects.filter(start__gte='13:00'),
     }
+
     return render(request, 'core/talk_list.html', context)

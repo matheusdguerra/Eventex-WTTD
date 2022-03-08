@@ -1,6 +1,3 @@
-from pyexpat import model
-from tabnanny import verbose
-from turtle import title
 from django.db import models
 from django.shortcuts import resolve_url as r
 

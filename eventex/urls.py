@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from eventex.core.views import home, speaker_detail, talk_list
-#import eventex.core.views
+
 
 urlpatterns = [
     path('', home, name='home'),

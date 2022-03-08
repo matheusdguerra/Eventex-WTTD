@@ -25,4 +25,5 @@ class SpeakerModelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Speaker, SpeakerModelAdmin)
+
 admin.site.register(Talk)
