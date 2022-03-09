@@ -8,7 +8,8 @@ class TalkListGet(TestCase):
     def setUp(self):
         t1 = Talk.objects.create(title='Título da Palestra', start='10:00', description='Descrição da palestra.')
         t2 = Talk.objects.create(title='Título da Palestra', start='13:00', description='Descrição da palestra.')
-        c1 = Course.objects.create(title='Título do Curso', start='09:00', description='Descrição do curso.', slot=20)
+        c1 = Course.objects.create(title='Título do Curso', start='09:00',
+                                   description='Descrição do curso.', slot=20)
 
         speaker = Speaker.objects.create(
             name='Matheus Guerra',
@@ -45,14 +46,14 @@ class TalkListGet(TestCase):
                 self.assertContains(self.resp, expected, count)
 
     def test_context(self):
-        variables = ['morning_talks', 'afternoon_talks', 'courses']
+        variables = ['morning_talks', 'afternoon_talks']
         for key in variables:
             with self.subTest():
                 self.assertIn(key, self.resp.context)
 
 
 class TalkListGetEmpty(TestCase):
-    def test_ger_empty(self):
+    def test_get_empty(self):
         response = self.client.get(r('talk_list'))
 
         self.assertContains(response, 'Ainda não existem palestras de manhã.')
